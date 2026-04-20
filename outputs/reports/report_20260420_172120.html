@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Financial Data Quality Report</title>
+    <style>
+        body { font-family: Arial, sans-serif; margin: 40px; background: #f4f6f8; }
+        h1 { color: #1f4e79; border-bottom: 3px solid #1f4e79; padding-bottom: 10px; }
+        h2 { color: #2e6da4; margin-top: 30px; }
+        .card { background: white; padding: 20px; margin-top: 15px; border-radius: 8px; box-shadow: 0 2px 8px rgba(0,0,0,0.08); }
+        .metric { display: inline-block; margin: 10px 20px 10px 0; }
+        .metric span { font-size: 22px; font-weight: bold; color: #1f4e79; }
+        .high { border-left: 6px solid #e53935; background: #ffebee; padding: 15px; margin-top: 10px; border-radius: 4px; }
+        .medium { border-left: 6px solid #fb8c00; background: #fff7e6; padding: 15px; margin-top: 10px; border-radius: 4px; }
+        .low { border-left: 6px solid #43a047; background: #e8f5e9; padding: 15px; margin-top: 10px; border-radius: 4px; }
+    </style>
+</head>
+<body>
+<h1>Financial Data Quality Report</h1>
+<p><strong>Generated:</strong> 20 April 2026 17:21</p>
+<p><strong>Source:</strong> your_file.csv | <strong>Rows:</strong> 100500 | <strong>Size:</strong> 7.09 MB</p>
+
+<h2>Data Quality Summary</h2>
+<div class="card">
+    <div class="metric">Duplicates: <span>497</span></div>
+    <div class="metric">Invalid Amounts: <span>5310</span></div>
+    <div class="metric">Balance Issues: <span>70889</span></div>
+    <div class="metric">Anomalies: <span>2</span></div>
+</div>
+
+<h2>Insights & Actions</h2>
+
+<div class="high">
+    <strong>[HIGH] Data Quality</strong><br>
+    497 duplicate transactions detected (0.49%).<br>
+    <em>Action: Review and remove duplicate entries before reporting.</em>
+</div>
+
+<div class="high">
+    <strong>[HIGH] Data Quality</strong><br>
+    5310 invalid amounts found (5.28%). Includes 5019 nulls, 191 negatives, 100 zeros.<br>
+    <em>Action: Investigate source systems for missing or incorrect amount values.</em>
+</div>
+
+<div class="medium">
+    <strong>[MEDIUM] Balance Integrity</strong><br>
+    70889 transactions have balance inconsistencies (70.54%).<br>
+    <em>Action: Verify balance update logic in source transaction system.</em>
+</div>
+
+<div class="high">
+    <strong>[HIGH] Anomaly</strong><br>
+    Found 3 volume spikes and 7 drops across steps.<br>
+    <em>Action: Investigate affected time steps for unusual activity.</em>
+</div>
+
+<div class="high">
+    <strong>[HIGH] Anomaly</strong><br>
+    Found 3 amount spikes and 7 drops.<br>
+    <em>Action: Investigate affected time steps for unusual activity.</em>
+</div>
+
+
+<h2>Anomaly Details</h2>
+
+<div class="card">
+    <strong>VOLUME_ANOMALY</strong> — Severity: high<br>
+    Found 3 volume spikes and 7 drops across steps.
+</div>
+
+<div class="card">
+    <strong>AMOUNT_TREND_ANOMALY</strong> — Severity: high<br>
+    Found 3 amount spikes and 7 drops.
+</div>
+
+
+</body>
+</html>
