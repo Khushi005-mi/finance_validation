@@ -1,0 +1,63 @@
+schema:
+  required_columns:
+    - transaction_id
+    - transaction_step
+    - transaction_type
+    - transaction_amount
+    - name_orig
+    - name_dest
+    - old_balance
+    - new_balance
+    - is_fraud
+
+  column_types:
+    transaction_step: int
+    transaction_amount: float
+    old_balance: float
+    new_balance: float
+    is_fraud: int
+
+amount_rules:
+  min_value: 0
+  max_value: 10000000
+  allow_zero: false
+  allow_negative: false
+
+type_normalization:
+  PAYMENT:
+    - payment
+    - Payment
+    - PMNT
+    - pay
+  TRANSFER:
+    - transfer
+    - Transfer
+    - TRNSFR
+    - trans
+  CASH_OUT:
+    - cash_out
+    - cashout
+    - CASH-OUT
+  CASH_IN:
+    - cash_in
+    - cashin
+    - CASH-IN
+  DEBIT:
+    - debit
+    - Debit
+
+duplicate_rules:
+  subset_columns:
+    - name_orig
+    - name_dest
+    - transaction_amount
+    - transaction_step
+anomaly_rules:
+  volume_spike_threshold: 0.25
+  amount_spike_threshold: 0.30
+  missing_data_threshold: 0.10
+  min_months_for_trend: 2
+
+quality_thresholds:
+  stop_pipeline_if_invalid_pct_above: 0.40
+  warn_if_missing_pct_above: 0.05
